@@ -1,12 +1,125 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <title>7th sem time Table</title>
-    </head>
-    <body>
-        <h3>7<sup>th</sup> sem time Table</h3>
-        <table border="2" width="1000" cellpadding="5" cellspacing="4">
-            <tr>
+<head>
+  <title>7th sem time Table</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      overflow: hidden; /* Added to remove the scrollbar */
+    }
+
+    .table-container {
+      padding: 20px;
+    }
+
+    table {
+      border-collapse: collapse;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      width: 1000px; /* Increased the width of the table */
+      border: 2px solid #333; /* Added dark border line */
+      font-size: 16px; /* Added font size */
+    }
+
+    th, td {
+      padding: 15px 20px; /* Increased the padding */
+      border: 1px solid #ccc;
+    }
+	
+	  tr {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    /* Animate the table headers */
+    th {
+      background-color: #3498db;
+      color: white;
+      transition: background-color 0.5s ease;
+    }
+
+    th:hover {
+      background-color: #2ecc71;
+    }
+
+    /* Animate the table rows */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    tbody tr:nth-child(odd) {
+      transform: translateY(-20px);
+      animation: slideInLeft 0.8s forwards;
+    }
+
+    tbody tr:nth-child(even) {
+      transform: translateY(20px);
+      animation: slideInRight 0.8s forwards;
+    }
+  tr:nth-child(n+2) td:first-child {
+      background-color: #3498db;
+      color: #ffffff;
+    }
+    @keyframes slideInLeft {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+		
+      }
+    }
+
+    /* Animate the table on hover */
+    table:hover {
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
+
+    /* Add class to cells with the same value when hovered */
+    .pop-up:hover {
+    background-color: #27ae60; /* Change to the desired background color (dark green) */
+      color: #ffffff; /* Change to the desired text color (white) */
+      transform: scale(1.1);
+      transition: transform 0.5s ease;
+    }
+ td[data-color="green"] {
+      background-color: #2ecc71;
+      color: #ffffff;
+    }
+
+    td[data-color="blue"] {
+      background-color: #3498db;
+      color: #ffffff;
+    }
+	 .important-info {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    /* Add table shadow */
+    table {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 1);
+    }
+	
+  </style>
+</head>
+<body>
+  <div class="table-container">
+    <h3>7<sup>th</sup> sem time Table</h3>
+    <table border="2" cellpadding="5" cellspacing="4">
+     <tr>
                 <th>days</th>
                 <th>1<br>9:00-9:50</th>
                 <th>2<br>9:50-10:40</th>
@@ -21,7 +134,7 @@
                 <th>8<br>4:00-4:45</th>
             </tr>
             <tr>
-                <td align="center"><b>mon</td>
+                <td align="center"><b>Monday</td>
                 <td align="center">StreamDA</td>
                 <td align="center" bgcolor="Lightgray" >MobileNW Lab</td>
                 <td align="center" bgcolor="Lightgray" colspan="2">MobileNW Lab</td>
@@ -31,7 +144,7 @@
                 <td align="center">Assoc</td>
             </tr>
             <tr>
-                <td align="center"><b>Tue</td>
+                <td align="center"><b>Tuesday</td>
                 <td align="center">DataViz</td>
                 <td align="center">MobileNW</td>
                 <td align="center" bgcolor="Lightgray" colspan="2">RP</td>
@@ -41,7 +154,7 @@
 
             </tr>
             <tr>
-                <td align="center"><b>Wed</td>
+                <td align="center"><b>Wednesday</td>
                 <td align="center">Cloud</td>
                 <td align="center">StreamDA</td>
                 <td align="center">EmbSys</td>
@@ -52,7 +165,7 @@
             </tr>
 
             <tr>
-                <td align="center"><b>Thu</td>
+                <td align="center"><b>Thursday</td>
                 <td align="center">EmbSys</td>
                 <td align="center">DataViz</td>
                 <td align="center">StreamDA</td>
@@ -62,7 +175,7 @@
                 <td align="center" colspan="2" bgcolor="Lightgray">ITT</td>
             </tr>
             <tr>
-                <td align="center"><b>Fri</td>
+                <td align="center"><b>Friday</td>
                 <td align="center">RoadSaftey</td>
                 <td align="center">Cloud</td>
                 <td align="center">DataViz</td>
@@ -72,7 +185,7 @@
                 <td align="center" colspan="2" bgcolor="Lightgray">P.Ed / RP</td>
             </tr>
             <tr>
-                <td align="center"><b>Sat</td>
+                <td align="center"><b>Saturday</td>
                 <td align="center">DataViz</td>
                 <td align="center">RoadSaftey</td>
                 <td align="center">MobileNW</td>
@@ -82,6 +195,34 @@
                 <td align="center">StreamDA</td>
                 <td align="center">Club</td>
             </tr>
-        </table>
-    </body>
+    </table>
+  </div>
+
+  <script>
+    // JavaScript to add event listeners to cells with the same value
+    window.addEventListener('DOMContentLoaded', () => {
+      const cells = document.querySelectorAll('td');
+
+      cells.forEach((cell) => {
+        cell.addEventListener('mouseover', () => {
+          const cellValue = cell.textContent;
+          cells.forEach((c) => {
+            if (c.textContent === cellValue) {
+              c.classList.add('pop-up');
+            }
+          });
+        });
+
+        cell.addEventListener('mouseout', () => {
+          const cellValue = cell.textContent;
+          cells.forEach((c) => {
+            if (c.textContent === cellValue) {
+              c.classList.remove('pop-up');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
 </html>
